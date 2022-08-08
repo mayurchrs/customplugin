@@ -1,4 +1,4 @@
-package helloworld
+package customplugin
 
 import (
 	"encoding/json"
@@ -25,7 +25,7 @@ type Data struct {
 
 func (s *Vthtest) SampleConfig() string {
 	fmt.Print("Working Go!")
-	return "hello telegraf"
+	return "hello telegraf custom plugin"
 }
 
 func (s *Vthtest) Gather(acc telegraf.Accumulator) error {
@@ -33,7 +33,7 @@ func (s *Vthtest) Gather(acc telegraf.Accumulator) error {
 	/*
 		Function for Gather average vthunder data usage using python script, and convert it into integer value.
 	*/
-	content, cerr := ioutil.ReadFile("/usr/local/go/src/telegraf/plugins/inputs/helloworld/path.json")
+	content, cerr := ioutil.ReadFile("/usr/local/go/src/telegraf/plugins/inputs/customplugin/path.json")
 	if cerr != nil {
 		log.Fatal("Error when opening file: ", cerr)
 	}
@@ -64,7 +64,7 @@ func (s *Vthtest) Gather(acc telegraf.Accumulator) error {
 
 func init() {
 
-	content, cerr := ioutil.ReadFile("/usr/local/go/src/telegraf/plugins/inputs/helloworld/path.json")
+	content, cerr := ioutil.ReadFile("/usr/local/go/src/telegraf/plugins/inputs/customplugin/path.json")
 	if cerr != nil {
 		log.Fatal("Error when opening file: ", cerr)
 	}
@@ -74,7 +74,7 @@ func init() {
 		log.Fatal("Error during Unmarshal(): ", jsonerr)
 	}
 
-	inputs.Add("helloworld", func() telegraf.Input {
+	inputs.Add("customplugin", func() telegraf.Input {
 		return &Vthtest{python_exe_path: payload.Python_Exe_Path, file_path: payload.Python_File_Path}
 	})
 }
