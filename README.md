@@ -1,0 +1,2 @@
+# customplugin
+Telegraf_custom_plugins
