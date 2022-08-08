@@ -221,5 +221,5 @@ import (
 	_ "github.com/influxdata/telegraf/plugins/inputs/zipkin"
 	_ "github.com/influxdata/telegraf/plugins/inputs/zookeeper"
 	_ "github.com/influxdata/telegraf/plugins/inputs/trig"
-	_ "github.com/influxdata/telegraf/plugins/inputs/helloworld"
+	_ "github.com/influxdata/telegraf/plugins/inputs/customplugin"
 )
