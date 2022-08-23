@@ -109,11 +109,15 @@ def handle():
     auth = Authentication()
     # get azure credentials
     credential = auth.get_azure_cred()
-    # gat subscription id value
-    # subscription_id = os.getenv("SubscriptionId")
-    subscription_id = "07d34b9b-61e3-475a-abbc-006b16812a3e"
-    resource_group_name = "spatil2_rg_1"
-    virtual_machine_scale_set_name = "vthunder-vmss"
+    # read rg name, vmss name and sub_id from json file
+    f = open('get_cpu_param.json')
+    data = json.load(f)
+    subscription_id = data['Subscription_Id']
+    resource_group_name = data['ResourceGroupName']
+    virtual_machine_scale_set_name = data['VmssName']
+    print(resource_group_name)
+    print(virtual_machine_scale_set_name)
+    f.close()
     # compute_client = ComputeManagementClient(credential=credential, subscription_id=subscription_id)
     network_client = NetworkManagementClient(credential=credential, subscription_id=subscription_id)
     # # get vmss vthunder instances ips
