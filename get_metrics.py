@@ -110,8 +110,8 @@ def handle():
     # get azure credentials
     credential = auth.get_azure_cred()
     subscription_id = "07d34b9b-61e3-475a-abbc-006b16812a3e"
-    resource_group_name = "TeleFinalTest"
-    virtual_machine_scale_set_name = "vthundernamefinal"
+    resource_group_name = "spatil2-rg"
+    virtual_machine_scale_set_name = "vthunder-vmss"
     # compute_client = ComputeManagementClient(credential=credential, subscription_id=subscription_id)
     network_client = NetworkManagementClient(credential=credential, subscription_id=subscription_id)
     # # get vmss vthunder instances ips
