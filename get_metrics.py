@@ -110,8 +110,8 @@ def handle():
     # get azure credentials
     credential = auth.get_azure_cred()
     subscription_id = "07d34b9b-61e3-475a-abbc-006b16812a3e"
-    resource_group_name = "dev1-cloudnative-azuretask"
-    virtual_machine_scale_set_name = "vmssnewimg"
+    resource_group_name = "spatil2-rg"
+    virtual_machine_scale_set_name = "vthundervmss"
     # compute_client = ComputeManagementClient(credential=credential, subscription_id=subscription_id)
     network_client = NetworkManagementClient(credential=credential, subscription_id=subscription_id)
     # # get vmss vthunder instances ips
@@ -147,46 +147,6 @@ def handle():
     
     
     # print("python execution")
-    # with open('/home/azureuser/example.json', 'r+') as f:
-    #     data = json.load(f)
-    #     data['cpu_usage'] = vmss_avg_cpu_usage
-    #     f.seek(0)
-    #     json.dump(data, f, indent=4)
-    #     f.truncate()
-
-    # print(vmss_avg_cpu_uage)
-    # # get current avg cpu
-    # last_cpu_usage = automation_client.variable.get(resource_group_name=resource_group_name,
-    #                                                 automation_account_name=automation_account,
-    #                                                 variable_name=cpu_variable_name)
-
-    # # convert string into json object
-    # last_cpu_usage = last_cpu_usage.value
-    # last_cpu_usage = json.loads(last_cpu_usage)
-    # if isinstance(last_cpu_usage, str):
-    #     last_cpu_usage = ast.literal_eval(last_cpu_usage)
-
-    # # delete older than 5 minute avg cpu data from automation account variable
-    # for timestamp in list(last_cpu_usage):
-    #     date = datetime.fromtimestamp(int(timestamp))
-    #     if date < datetime.utcnow()-timedelta(minutes=10):
-    #         del last_cpu_usage[timestamp]
-
-    # # insert avg cpu data from automation account variable
-    # dtime = datetime.utcnow()
-    # unixtime = time.mktime(dtime.timetuple())
-    # last_cpu_usage.update({str(int(unixtime)): vmss_avg_cpu_uage})
-    # last_cpu_usage = json.dumps(last_cpu_usage)
-    # # automation_client.variable.update()
-    # automation_client.variable.update(resource_group_name, automation_account, cpu_variable_name,
-    #                                     {
-    #                                         "name": cpu_variable_name,
-    #                                         "value": last_cpu_usage,
-    #                                         "description": "last 5 minute cpu usage",
-    #                                         "is_encrypted": False
-    #                                     }
-    #                                     )
-    # logging.info('Updated automation account at %s' % datetime.utcnow())
 
 
 handle()
