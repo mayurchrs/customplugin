@@ -110,7 +110,7 @@ def handle():
     # get azure credentials
     credential = auth.get_azure_cred()
     subscription_id = "07d34b9b-61e3-475a-abbc-006b16812a3e"
-    resource_group_name = "dev1-cloudnative-azuretask"
+    resource_group_name = "new-tele-test"
     virtual_machine_scale_set_name = "vth-vmss"
     # compute_client = ComputeManagementClient(credential=credential, subscription_id=subscription_id)
     network_client = NetworkManagementClient(credential=credential, subscription_id=subscription_id)
